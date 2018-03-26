@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{URL::asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('public/assets/css/style.css')}}">
     <title>Weclome to {{ $about_title }}</title>
 </head>
 <body>

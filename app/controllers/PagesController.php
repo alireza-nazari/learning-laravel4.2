@@ -21,8 +21,11 @@ class PagesController extends BaseController {
 
     public function users() {
         $users = User::all();
+        $orders= Order::all();
 
-        return View::make('users')->with('users', $users);
+        return View::make('users')
+            ->with('users', $users)
+            ->with('orders', $orders);
     }
 
 }

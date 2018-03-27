@@ -1,22 +1,13 @@
-* {
-    padding: 0;
-    margin: 0;
-}
-
 body {
+    border-radius: 3%;
     background-color: #313131;
+    border: 1px solid #3a3a3a;
     color: #f8f8f8;
     font-family: sans-serif;
     padding: 20px;
     width: 460px;
     margin: 10px auto;
-    border: 1px solid #3a3a3a;
-    border-radius: 3%;
 }
-
-nav {}
-
-nav ul {}
 
 nav ul li {
     list-style: none;
@@ -25,10 +16,6 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #f8f8f8;
-}
-
-nav ul li a:visited {
     color: #92d450;
 }
 

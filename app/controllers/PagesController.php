@@ -18,16 +18,6 @@ class PagesController extends BaseController {
 	    	->with('blog_title',$blog_title)
     		->with('blog_desc', $blog_desc);
     }
-
-    public function users() {
-        $users = User::all();
-        $orders= Order::all();
-
-        return View::make('users')
-            ->with('users', $users)
-            ->with('orders', $orders);
-    }
-
 }
 
 

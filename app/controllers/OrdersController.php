@@ -9,7 +9,10 @@ class OrdersController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		// for display list on the view 
+		// we need to query our db and find them 
+		$orders = Order::all();
+		return View::make('orders.index', ['orders' => $orders]);
 	}
 
 
@@ -20,7 +23,7 @@ class OrdersController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('orders.create');
 	}
 
 
@@ -31,7 +34,7 @@ class OrdersController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		return 'store method works!';
 	}
 
 
@@ -41,9 +44,12 @@ class OrdersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($ordername)
 	{
-		//
+		// connect to db refrens method
+		$order = Order::whereOrdername($ordername)->first();
+		
+		return View::make('orders.show', ['order' => $order]);
 	}
 
 

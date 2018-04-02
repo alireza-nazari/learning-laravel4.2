@@ -2,6 +2,12 @@
 
 class UsersController extends \BaseController {
 
+	protected $user;
+	// User instens and requst Eloquent object $user to user automatic resolotion in laravel
+	public function __construct(User $user){
+		$this->user = $user;
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -40,10 +46,15 @@ class UsersController extends \BaseController {
         // }
         
         // $users = User::orderBy('id', 'des')->get();
-        // $users = User::orderBy('id', 'asc')->get();
-        $users = User::orderBy('id', 'asc')->take(2)->get();
-
-
+		// $users = User::orderBy('id', 'asc')->get();
+		
+		// commented becouse of __CONSTRACT
+        // $users = User::orderBy('id', 'asc')->take(20)->get();
+		// $user = $this->user->all();
+		// OR
+		// USE __CONSTRACT
+		$users = $this->user->orderBy('id', 'asc')->take(100)->get();
+ 
         return View::make('users.index ')->with('users', $users);
 	}
 
@@ -55,7 +66,7 @@ class UsersController extends \BaseController {
 	 */
 	public function create()
 	{
-		
+		return View::make('users.create');
 	}
 
 
@@ -66,7 +77,41 @@ class UsersController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		// get input from other page
+		// $data = [
+		// 	'username' => Input::get('username'),
+		// 	'email' => Input::get('email'),
+		// 	'gender' => Input::get('gender')
+		// ];
+		
+		// validation in User model with specific validate method 
+		// $this->user->fill(Input::all());
+		$input = Input::all();
+
+		if ( ! $this->user->fill($input)->isValid()) {
+			return Redirect::back()->withInput()->withErrors($this->user->errors); // (User::$errors);
+		}
+
+		// $validation = Validator::make(Input::all(), User::$rules);
+		// validation in controller store method
+		// if ($validation->fails()) {
+		// 	return Redirect::back()->withInput()->withErrors($validation->messages()); 
+		// }
+		
+		// 1 way to create user
+		// $user = new User;
+		// $user->username = Input::get('username');
+		// $user->email = Input::get('email');
+		// $user->gender = Input::get('gender');
+		// $user->save();
+
+		// 2 way to create user
+		//$this->user->create($input);
+
+		$this->user->sava();
+
+		return Redirect::route('users.index');
+
 	}
 
 
@@ -79,7 +124,9 @@ class UsersController extends \BaseController {
 	public function show($username)
 	{
 		// select * from users where username = USERNAME LIMIT 1
-		$user = User::whereUsername($username)->first();
+		// $user = User::whereUsername($username)->first();
+		// USE __CONSTRACT
+		$user = $this->user->whereUsername($username)->first();
 
         return View::make('users.show', ['user' => $user]);
 	}
@@ -119,6 +166,5 @@ class UsersController extends \BaseController {
 	{
 		//
 	}
-
 
 }

@@ -18,9 +18,10 @@
 
 Route::get('/', 			'PagesController@home');
 Route::get('about', 		'PagesController@about');
-Route::get('blog', 			'PagesController@blog');
+// Route::get('blog', 			'PagesController@blog'); because we have a posts controller now!
 // Route::get('users', 		            'UsersController@index');
 // Route::get('users/{username}', 		    'UsersController@show');
 
 Route::resource('users', 'UsersController');
 Route::resource('orders', 'OrdersController');
+Route::resource('blog', 'PostsController');

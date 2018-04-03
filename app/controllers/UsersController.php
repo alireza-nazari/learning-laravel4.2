@@ -108,7 +108,7 @@ class UsersController extends \BaseController {
 		// 2 way to create user
 		//$this->user->create($input);
 
-		$this->user->sava();
+		$this->user->create($input);
 
 		return Redirect::route('users.index');
 

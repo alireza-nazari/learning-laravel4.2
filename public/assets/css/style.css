@@ -47,6 +47,7 @@ table {
 
 h1 {
     color: #92d450;
+    margin-bottom: 0;
 }
 
 h3 {
@@ -81,7 +82,7 @@ a {
 }
 
 .content a:visited {
-    color: #2d5900;
+    color: #b5b5b5;
 }
 
 .content h1 span {
@@ -94,5 +95,79 @@ a {
 }
 
 .content .row {
-    min-height: 30px;
+    min-height: 40px;
+}
+
+.content .error {
+    font-size: 10px;
+    float: right;
+    margin-top: 25px;
+    margin-right: -172px;
+}
+
+.content .cats {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.posts {
+    border-right: 4px solid #92d450;
+}
+
+.posts h2 {
+    margin-bottom: 0;
+}
+
+.posts p {
+    margin-top: 0;
+}
+
+.posts h2 span {
+    float: right;
+}
+
+.posts h2 span a {
+    text-decoration: none;
+}
+
+.posts .date {
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+    color: #b5b5b5
+}
+
+.posts .date .cre,
+.posts .date .upd {
+    color: #a8a8a8;
+}
+
+.posts .aut,
+.posts .cat,
+.posts .tag {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.post h1 {
+    margin-bottom: 0;
+}
+
+.post .date {
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+    color: #b5b5b5
+}
+
+.post .date .cre,
+.post .date .upd {
+    color: #a8a8a8;
+}
+
+.post .aut,
+.post .cat,
+.post .tag {
+    font-weight: 700;
+    text-transform: uppercase;
 }
